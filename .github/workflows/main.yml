@@ -1,0 +1,28 @@
+name: Secret-Scan
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+        
+      - name: trufflehog-actions-scan
+        uses: edplato/trufflehog-actions-scan@master
+        with:
+          scanArguments: "--regex --entropy=False --max_depth=5"
+    
+      - name: GitGuardian Shield Action
+        uses: GitGuardian/gg-shield-action@v1.1.0
+        with:
+          args: # optional
+            --all-policies --show-secrets --verbose
+          
+    
