@@ -13,8 +13,11 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-        
+          
+      - name: Detect Secrets
+        uses: evanextreme/detect-secrets-action@1.0.0
+
       - name: trufflehog-actions-scan
         uses: edplato/trufflehog-actions-scan@master
         with:
-          scanArguments: "--regex --entropy=False --max_depth=5"    
+          scanArguments: "--regex --entropy=False --max_depth=5"  
