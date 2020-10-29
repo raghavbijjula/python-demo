@@ -1,17 +1,16 @@
 name: Secret-Scan
 
 on:
-  push:
-    branches: [ master ]
   pull_request:
-    branches: [ master ]
+    branches:
+      - '*'
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-                
+
       - name: Easy detect-secrets
         uses: RobertFischer/detect-secrets-action@v2.0.0
 
