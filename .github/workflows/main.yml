@@ -20,10 +20,7 @@ jobs:
       
       - name: Trufflehog Check
         uses: UnicornGlobal/trufflehog-actions-scan@v1.0.0
-        
-      - name: Secret Scan
-        uses: max/secret-scan@1.0.0
-        
+                
       - name: Easy detect-secrets
         uses: RobertFischer/detect-secrets-action@v2.0.0
 
