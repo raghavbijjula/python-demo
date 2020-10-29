@@ -11,11 +11,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
           
       - name: Detect Secrets
         uses: evanextreme/detect-secrets-action@1.0.0
 
       - name: trufflehog-actions-scan
         uses: edplato/trufflehog-actions-scan@master
+      
+      - name: Trufflehog Check
+        uses: UnicornGlobal/trufflehog-actions-scan@v1.0.0
+        
+      - name: Secret Scan
+        uses: max/secret-scan@1.0.0
+        
+      - name: Easy detect-secrets
+        uses: RobertFischer/detect-secrets-action@v2.0.0
+
